@@ -11,8 +11,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ElastigroupUsageExample {
-    private final static String auth_token = "your-token";
-    private final static String act_id     = "your-account-id";
+    //private final static String auth_token = "your-token";
+    //private final static String act_id     = "your-account-id";
+    //private final static String key_pair_name = "some-key-pair-name";
+
+    private final static String auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcG90aW5zdCIsImV4cCI6MTgzMzQ1NTk2MCwiaWF0IjoxNTE4MDk1OTYwLCJ1aWQiOi0xLCJyb2xlIjoyLCJvaWQiOiI2MDYwNzk4NjU5MjgifQ.S1ju7am6nn4eLd7pIQShS0LPoZc6Swv-DwPk4f7vg40";
+    private final static String act_id     = "act-2dc4abcc";
     private final static String key_pair_name = "some-key-pair-name";
 
     private static final String SPOTINST_TEST_GROUP_NAME = "SpotinstTestJavaSDKGroup";
@@ -23,6 +27,12 @@ public class ElastigroupUsageExample {
 
         // Create group
         String elastigroupId = createGroup(elastigroupClient);
+
+        // Enter Group Standby
+        enterGroupStandby(elastigroupClient, elastigroupId);
+
+        // Exit Group Standby
+        exitGroupStandby(elastigroupClient, elastigroupId);
 
         // Clone group
         String clonedElastigroupId = cloneGroup(elastigroupClient, elastigroupId);
@@ -221,7 +231,6 @@ public class ElastigroupUsageExample {
             System.out.println(String.format("Successfully detached instances from %s", elastigroupId));
         }
     }
-
 
     private static List<Elastigroup> getAllElastigroupsFilteredByName(SpotinstElastigroupClient client) {
 
@@ -535,6 +544,34 @@ public class ElastigroupUsageExample {
         Boolean updateSuccess = client.updateElastigroup(updateRequest, elastigroupId);
         if (updateSuccess) {
             System.out.println("Group successfully detached its Load Balancer.");
+        }
+    }
+
+    private static void enterGroupStandby(SpotinstElastigroupClient client, String elastigroupId) {
+
+        // Build standby elastigroup request
+        ElastigroupStandbyRequest.Builder elastigroupStandbyRequestBuilder = ElastigroupStandbyRequest.Builder.get();
+        ElastigroupStandbyRequest postRequest = elastigroupStandbyRequestBuilder.setElastigroupId(elastigroupId).build();
+
+        // enter group standby
+        Boolean updateSuccess = client.enterGroupStandby(postRequest);
+
+        if (updateSuccess) {
+            System.out.println("Group successfully entered standby mode.");
+        }
+    }
+
+    private static void exitGroupStandby(SpotinstElastigroupClient client, String elastigroupId) {
+
+        // Build standby elastigroup request
+        ElastigroupStandbyRequest.Builder elastigroupStandbyRequestBuilder = ElastigroupStandbyRequest.Builder.get();
+        ElastigroupStandbyRequest deleteRequest = elastigroupStandbyRequestBuilder.setElastigroupId(elastigroupId).build();
+
+        // exit group standby
+        Boolean updateSuccess = client.exitGroupStandby(deleteRequest);
+
+        if (updateSuccess) {
+            System.out.println("Group successfully Exited standby mode.");
         }
     }
 }
