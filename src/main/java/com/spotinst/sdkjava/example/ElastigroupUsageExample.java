@@ -11,12 +11,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ElastigroupUsageExample {
-    //private final static String auth_token = "your-token";
-    //private final static String act_id     = "your-account-id";
-    //private final static String key_pair_name = "some-key-pair-name";
-
-    private final static String auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcG90aW5zdCIsImV4cCI6MTgzMzQ1NTk2MCwiaWF0IjoxNTE4MDk1OTYwLCJ1aWQiOi0xLCJyb2xlIjoyLCJvaWQiOiI2MDYwNzk4NjU5MjgifQ.S1ju7am6nn4eLd7pIQShS0LPoZc6Swv-DwPk4f7vg40";
-    private final static String act_id     = "act-2dc4abcc";
+    private final static String auth_token = "your-token";
+    private final static String act_id     = "your-account-id";
     private final static String key_pair_name = "some-key-pair-name";
 
     private static final String SPOTINST_TEST_GROUP_NAME = "SpotinstTestJavaSDKGroup";
@@ -420,7 +416,7 @@ public class ElastigroupUsageExample {
 
         tasksList.add(task2);
         SimpleDateFormat formatter    = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        String           dateInString = "2020-05-18T02:00:00Z";
+        String           dateInString = "2021-05-18T02:00:00Z";
         Date             date         = null;
         try {
             date = formatter.parse(dateInString);
@@ -571,7 +567,7 @@ public class ElastigroupUsageExample {
         Boolean updateSuccess = client.exitGroupStandby(deleteRequest);
 
         if (updateSuccess) {
-            System.out.println("Group successfully Exited standby mode.");
+            System.out.println("Group successfully exited standby mode.");
         }
     }
 }

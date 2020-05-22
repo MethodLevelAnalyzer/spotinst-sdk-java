@@ -388,7 +388,7 @@ class SpotinstElastigroupService extends BaseSpotinstService {
         String             apiEndpoint = config.getEndpoint();
 
         // Build query params
-        Map<String, String> queryParams = new HashMap<String, String>();
+        Map<String, String> queryParams = new HashMap<>();
 
         // Add account Id Query param
         if (account != null) {

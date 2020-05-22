@@ -134,8 +134,8 @@ public class SpotinstElastigroupClient {
     }
 
     public Boolean enterGroupStandby(ElastigroupStandbyRequest elastigroupStandbyRequest) {
+        Boolean retVal;
 
-        Boolean retVal                = null;
         RepoGenericResponse<Boolean> elastigroupStandbyResponse =
                 getSpotinstElastigroupRepo().enterStandby(elastigroupStandbyRequest, authToken, account);
         if (elastigroupStandbyResponse.isRequestSucceed()) {
@@ -145,7 +145,7 @@ public class SpotinstElastigroupClient {
             List<HttpError> httpExceptions = elastigroupStandbyResponse.getHttpExceptions();
             HttpError       httpException  = httpExceptions.get(0);
             LOGGER.error(
-                    String.format("Error encountered while attempting to enter standby an elastigroup. Code: %s. Message: %s.",
+                    String.format("Error encountered while attempting to enter elastigroup standby. Code: %s. Message: %s.",
                                   httpException.getCode(), httpException.getMessage()));
             throw new SpotinstHttpException(httpException.getMessage());
         }
@@ -154,8 +154,8 @@ public class SpotinstElastigroupClient {
     }
 
     public Boolean exitGroupStandby(ElastigroupStandbyRequest elastigroupStandbyRequest) {
+        Boolean retVal;
 
-        Boolean retVal                = null;
         RepoGenericResponse<Boolean> elastigroupStandbyResponse =
                 getSpotinstElastigroupRepo().exitStandby(elastigroupStandbyRequest, authToken, account);
         if (elastigroupStandbyResponse.isRequestSucceed()) {
@@ -165,7 +165,7 @@ public class SpotinstElastigroupClient {
             List<HttpError> httpExceptions = elastigroupStandbyResponse.getHttpExceptions();
             HttpError       httpException  = httpExceptions.get(0);
             LOGGER.error(
-                    String.format("Error encountered while attempting to exit standby an elastigroup. Code: %s. Message: %s.",
+                    String.format("Error encountered while attempting to exit elastigroup standby. Code: %s. Message: %s.",
                                   httpException.getCode(), httpException.getMessage()));
             throw new SpotinstHttpException(httpException.getMessage());
         }

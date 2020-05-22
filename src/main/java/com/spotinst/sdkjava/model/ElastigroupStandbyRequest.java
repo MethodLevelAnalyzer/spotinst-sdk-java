@@ -14,7 +14,6 @@ public class ElastigroupStandbyRequest {
     //endregion
 
     //region Getter and Setter methods
-
     public String getElastigroupId() {
         return elastigroupId;
     }
@@ -22,7 +21,6 @@ public class ElastigroupStandbyRequest {
     public void setElastigroupId(String elastigroupId) {
         this.elastigroupId = elastigroupId;
     }
-
     //endregion
 
     //region Builder class
@@ -46,7 +44,6 @@ public class ElastigroupStandbyRequest {
         public ElastigroupStandbyRequest build() {
             return elastigroupStandbyRequest;
         }
-
     }
     //endregion
 }
