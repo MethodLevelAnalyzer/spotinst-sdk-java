@@ -440,7 +440,6 @@ public class SpotinstElastigroupClient {
         return retVal;
     }
 
-
     public SuspendedProcesses getSuspendedProcesses(ElastigroupGetSuspensionsRequest request) {
 
         SuspendedProcesses retVal;

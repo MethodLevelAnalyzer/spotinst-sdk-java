@@ -552,6 +552,7 @@ class SpotinstElastigroupService extends BaseSpotinstService {
 
     public static ApiSuspendedProcesses suspendProcesses(String groupId, ApiSuspendProcessesRequest request,
                                                          String authToken, String account) {
+        ApiSuspendedProcesses retVal;
 
         // Get endpoint
         SpotinstHttpConfig config      = SpotinstHttpContext.getInstance().getConfiguration();
@@ -582,14 +583,14 @@ class SpotinstElastigroupService extends BaseSpotinstService {
         ElastigroupSuspendedProcessesApiResponse castedResponse =
                 getCastedResponse(response, ElastigroupSuspendedProcessesApiResponse.class);
 
-        ApiSuspendedProcesses retVal = castedResponse.getResponse().getItems().get(0);
+        retVal = castedResponse.getResponse().getItems().get(0);
 
         return retVal;
     }
 
     public static ApiSuspendedProcesses removeSuspensions(String groupId, ApiRemoveSuspensionsRequest request,
                                                           String authToken, String account) {
-        ApiSuspendedProcesses retVal = null;
+        ApiSuspendedProcesses retVal;
         // Get endpoint
         SpotinstHttpConfig config      = SpotinstHttpContext.getInstance().getConfiguration();
         String             apiEndpoint = config.getEndpoint();
@@ -669,6 +670,7 @@ class SpotinstElastigroupService extends BaseSpotinstService {
         return retVal;
     }
 
+    //todo : Yossi move to class constructor
     private static ApiSuspendedProcesses buildEmptySuspendedProcessesResponse(String groupId) {
         ApiSuspendedProcesses retVal;
 

@@ -590,7 +590,6 @@ public class ElastigroupUsageExample {
     }
 
     private static SuspendedProcesses getSuspendedProcesses(SpotinstElastigroupClient elastigroupClient, String elastigroupId) {
-
         SuspendedProcesses retVal;
 
         ElastigroupGetSuspensionsRequest.Builder requestBuilder = ElastigroupGetSuspensionsRequest.Builder.get();
@@ -626,7 +625,6 @@ public class ElastigroupUsageExample {
 
     private static SuspendedProcesses suspendProcess(SpotinstElastigroupClient elastigroupClient, String elastigroupId,
                                                      ProcessNameEnum processName) {
-
         SuspendedProcesses retVal;
 
         ElastigroupSuspendProcessesRequest.Builder requestBuilder = ElastigroupSuspendProcessesRequest.Builder.get();
