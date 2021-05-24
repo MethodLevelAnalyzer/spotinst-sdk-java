@@ -70,8 +70,7 @@ public class ApiAzureStorageVolumeCapacity implements IPartialUpdateEntity {
     //endregion
 
 
-
-    //region isset methods
+    //region isSet methods
     // Is sizeGiB Set boolean method
     @JsonIgnore
     public boolean isSizeGiBSet() {

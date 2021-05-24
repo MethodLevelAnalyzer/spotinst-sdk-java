@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.spotinst.sdkjava.client.rest.IPartialUpdateEntity;
-import com.spotinst.sdkjava.model.api.gcp.ApiInstanceTypesGcp;
-import com.spotinst.sdkjava.model.api.gcp.ApiLaunchSpecificationGcp;
-import com.spotinst.sdkjava.model.api.gcp.ApiSubnetsGcp;
 
 import java.util.HashSet;
 import java.util.List;
@@ -20,10 +17,10 @@ public class ApiAzureStorageVolumeSpec implements IPartialUpdateEntity {
     //region Members
     @JsonIgnore
     private Set<String>                       isSet;
-    private ApiAzureStorageVolumeSpecNetwork network;
+    private ApiAzureStorageVolumeSpecNetwork  network;
     private ApiAzureStorageVolumeSpecProtocol protocol;
-    private String serviceLevel;
-    private List<ApiAzureStorageVolumeTag> tags;
+    private String                            serviceLevel;
+    private List<ApiAzureStorageVolumeTag>    tags;
     //endregion
 
     //region Constructor
@@ -54,7 +51,7 @@ public class ApiAzureStorageVolumeSpec implements IPartialUpdateEntity {
         return protocol;
     }
 
-    public void setProtocol(ApiAzureStorageVolumeSpecProtocol  protocol) {
+    public void setProtocol(ApiAzureStorageVolumeSpecProtocol protocol) {
         isSet.add("protocol");
         this.protocol = protocol;
     }
@@ -78,7 +75,7 @@ public class ApiAzureStorageVolumeSpec implements IPartialUpdateEntity {
     }
     //end region
 
-    //region is set methods
+    //region isSet methods
     // Is network Set boolean method
     @JsonIgnore
     public boolean isNetworkSet() {

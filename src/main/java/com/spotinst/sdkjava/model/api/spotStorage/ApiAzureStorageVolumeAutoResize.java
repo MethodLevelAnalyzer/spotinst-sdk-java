@@ -16,9 +16,9 @@ import java.util.Set;
 public class ApiAzureStorageVolumeAutoResize implements IPartialUpdateEntity {
     //region Members
     @JsonIgnore
-    private Set<String>                       isSet;
-    private String mode;
-    private String policyType;
+    private Set<String>                                       isSet;
+    private String                                            mode;
+    private String                                            policyType;
     private List<ApiAzureStorageVolumeAutoResizeResizePolicy> resizePolicies;
     //endregion
 
@@ -65,7 +65,7 @@ public class ApiAzureStorageVolumeAutoResize implements IPartialUpdateEntity {
     }
     //end region
 
-    //region is set methods
+    //region isSet methods
 
     // Is mode Set boolean method
     @JsonIgnore
