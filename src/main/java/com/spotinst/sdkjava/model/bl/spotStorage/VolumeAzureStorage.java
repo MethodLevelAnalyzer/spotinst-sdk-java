@@ -1,36 +1,29 @@
-package com.spotinst.sdkjava.model.api.spotStorage;
+package com.spotinst.sdkjava.model.bl.spotStorage;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.spotinst.sdkjava.client.rest.IPartialUpdateEntity;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonFilter("PartialUpdateEntityFilter")
-public class ApiVolumeSpotStorage implements IPartialUpdateEntity {
+public class VolumeAzureStorage {
     //region Members
     @JsonIgnore
-    private Set<String>                     isSet;
-    private String                          id;
-    private String                          name;
-    private String                          region;
-    private ApiAzureStorageVolumeCapacity   capacity;
-    private ApiAzureStorageVolumeThroughput throughput;
-    private ApiAzureStorageVolumeSpec       volumeSpec;
-    private ApiAzureStorageVolumeAutoResize autoResize;
-    private String                          state;
-    private Date                            createdAt;
-    private Date                            updatedAt;
+    private Set<String>                        isSet;
+    private String                             id;
+    private String                             name;
+    private String                             region;
+    private VolumeSpecNetwork                  capacity;
+    private VolumeThroughput                   throughput;
+    private VolumeSpecNetwork                  volumeSpec;
+    private VolumeAutoResizeResizePolicyAction autoResize;
+    private String                             state;
+    private Date                               createdAt;
+    private Date                               updatedAt;
     //endregion
 
     //region Constructor
-    public ApiVolumeSpotStorage() {
+    private VolumeAzureStorage() {
         isSet = new HashSet<>();
     }
     //endregion
@@ -70,38 +63,38 @@ public class ApiVolumeSpotStorage implements IPartialUpdateEntity {
         this.region = region;
     }
 
-    public ApiAzureStorageVolumeCapacity getCapacity() {
+    public VolumeSpecNetwork getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(ApiAzureStorageVolumeCapacity capacity) {
+    public void setCapacity(VolumeSpecNetwork capacity) {
         isSet.add("capacity");
         this.capacity = capacity;
     }
 
-    public ApiAzureStorageVolumeThroughput getThroughput() {
+    public VolumeThroughput getThroughput() {
         return throughput;
     }
 
-    public void setThroughput(ApiAzureStorageVolumeThroughput throughput) {
+    public void setThroughput(VolumeThroughput throughput) {
         isSet.add("throughput");
         this.throughput = throughput;
     }
 
-    public ApiAzureStorageVolumeSpec getVolumeSpec() {
+    public VolumeSpecNetwork getVolumeSpec() {
         return volumeSpec;
     }
 
-    public void setVolumeSpec(ApiAzureStorageVolumeSpec volumeSpec) {
+    public void setVolumeSpec(VolumeSpecNetwork volumeSpec) {
         isSet.add("volumeSpec");
         this.volumeSpec = volumeSpec;
     }
 
-    public ApiAzureStorageVolumeAutoResize getAutoResize() {
+    public VolumeAutoResizeResizePolicyAction getAutoResize() {
         return autoResize;
     }
 
-    public void setAutoResize(ApiAzureStorageVolumeAutoResize autoResize) {
+    public void setAutoResize(VolumeAutoResizeResizePolicyAction autoResize) {
         isSet.add("autoResize");
         this.autoResize = autoResize;
     }
@@ -131,6 +124,72 @@ public class ApiVolumeSpotStorage implements IPartialUpdateEntity {
     public void setUpdatedAt(Date updatedAt) {
         isSet.add("updatedAt");
         this.updatedAt = updatedAt;
+    }
+
+    //endregion
+
+    //region Builder class
+    public static class Builder {
+        //region Members
+        private VolumeAutoResizeResizePolicyAction volumeAzureStorage;
+        //endregion
+
+
+        private Builder() {
+            this.volumeAzureStorage = new VolumeAutoResizeResizePolicyAction();
+        }
+
+        public static Builder get() {
+            Builder builder = new Builder();
+            return builder;
+        }
+
+        //region Build methods
+        protected Builder setId(final String volumeId) {
+            volumeAzureStorage.setId(volumeId);
+            return this;
+        }
+
+        public Builder setName(final String name) {
+            volumeAzureStorage.setName(name);
+            return this;
+        }
+
+        public Builder setRegion(final String region) {
+            volumeAzureStorage.setRegion(region);
+            return this;
+        }
+
+        public Builder setCapacity(final VolumeSpecNetwork capacity) {
+            volumeAzureStorage.setCapacity(capacity);
+            return this;
+        }
+
+        public Builder setThroughput(final VolumeThroughput throughput) {
+            volumeAzureStorage.setThroughput(throughput);
+            return this;
+        }
+
+        public Builder setVolumeSpec(final com.spotinst.sdkjava.model.bl.spotStorage.volumeSpec volumeSpec) {
+            volumeAzureStorage.setVolumeSpec(volumeSpec);
+            return this;
+        }
+
+        public Builder setAutoResize(final VolumeAutoResizeResizePolicyAction autoResize) {
+            volumeAzureStorage.setAutoResize(autoResize);
+            return this;
+        }
+
+        public Builder setState(final String state) {
+            volumeAzureStorage.setState(state);
+            return this;
+        }
+
+        public VolumeAutoResizeResizePolicyAction build() {
+            // Validations
+            return volumeAzureStorage;
+        }
+        //endregion
     }
     //endregion
 

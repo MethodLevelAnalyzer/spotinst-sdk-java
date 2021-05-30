@@ -1,32 +1,25 @@
-package com.spotinst.sdkjava.model.api.spotStorage;
+package com.spotinst.sdkjava.model.bl.spotStorage;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.spotinst.sdkjava.client.rest.IPartialUpdateEntity;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonFilter("PartialUpdateEntityFilter")
-public class ApiAzureStorageVolumeAutoResizeResizePolicy implements IPartialUpdateEntity {
+public class VolumeAutoResizeResizePolicy {
     //region Members
     @JsonIgnore
     private Set<String>                                       isSet;
     private String                                            policyName;
     private Integer                                           usagePercentage;
     private String                                            operator;
-    private ApiAzureStorageVolumeAutoResizeResizePolicyAction action;
+    private VolumeAutoResizeResizePolicyAction                action;
     private Integer                                           period;
     private Integer                                           consecutivePeriods;
     private Integer                                           cooldown;
     //endregion
 
     //region Constructor
-    public ApiAzureStorageVolumeAutoResizeResizePolicy() {
+    private VolumeAutoResizeResizePolicy() {
         isSet = new HashSet<>();
     }
     //endregion
@@ -74,11 +67,11 @@ public class ApiAzureStorageVolumeAutoResizeResizePolicy implements IPartialUpda
     //endregion
 
     //region Action
-    public ApiAzureStorageVolumeAutoResizeResizePolicyAction getAction() {
+    public VolumeAutoResizeResizePolicyAction getAction() {
         return action;
     }
 
-    public void setAction(ApiAzureStorageVolumeAutoResizeResizePolicyAction action) {
+    public void setAction(VolumeAutoResizeResizePolicyAction action) {
         isSet.add("action");
         this.action = action;
     }
@@ -89,7 +82,7 @@ public class ApiAzureStorageVolumeAutoResizeResizePolicy implements IPartialUpda
         return period;
     }
 
-    public void setUsagePeriod(Integer period) {
+    public void setPeriod(Integer period) {
         isSet.add("period");
         this.period = period;
     }
@@ -117,6 +110,65 @@ public class ApiAzureStorageVolumeAutoResizeResizePolicy implements IPartialUpda
     }
     //endregion
 
+    //region Builder class
+    public static class Builder {
+        //region Members
+        private VolumeAutoResizeResizePolicyAction volumeAutoResizeResizePolicy;
+        //endregion
+
+
+        private Builder() {
+            this.volumeAutoResizeResizePolicy = new VolumeAutoResizeResizePolicyAction();
+        }
+
+        public static Builder get() {
+            Builder builder = new Builder();
+            return builder;
+        }
+
+        //region Build methods
+        protected Builder setPolicyName(final String policyName) {
+            volumeAutoResizeResizePolicy.setPolicyName(policyName);
+            return this;
+        }
+
+        public Builder setUsagePercentage(final Integer usagePercentage) {
+            volumeAutoResizeResizePolicy.setUsagePercentage(usagePercentage);
+            return this;
+        }
+
+        public Builder setOperator(final String operator) {
+            volumeAutoResizeResizePolicy.setOperator(operator);
+            return this;
+        }
+
+        public Builder setAction(final VolumeAutoResizeResizePolicyAction action) {
+            volumeAutoResizeResizePolicy.setAction(action);
+            return this;
+        }
+
+        public Builder setPeriod(final Integer period) {
+            volumeAutoResizeResizePolicy.setPeriod(period);
+            return this;
+        }
+
+        public Builder setConsecutivePeriods(final Integer consecutivePeriods) {
+            volumeAutoResizeResizePolicy.setConsecutivePeriods(consecutivePeriods);
+            return this;
+        }
+
+        public Builder setCooldown(final Integer cooldown) {
+            volumeAutoResizeResizePolicy.setCooldown(cooldown);
+            return this;
+        }
+
+        public VolumeAutoResizeResizePolicyAction build() {
+            // Validations
+            return volumeAutoResizeResizePolicy;
+        }
+        //endregion
+    }
+    //endregion
 
     //region isSet methods
     // Is policyName Set boolean method
