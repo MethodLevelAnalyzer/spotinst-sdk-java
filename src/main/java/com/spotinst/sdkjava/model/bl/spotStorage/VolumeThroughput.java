@@ -1,15 +1,14 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class VolumeThroughput {
     //region Members
     @JsonIgnore
-    private Set<String>  isSet;
-    private Double       throughputMibps;
+    private Set<String> isSet;
+    private Double      throughputMibps;
     //endregion
 
     //region Constructor

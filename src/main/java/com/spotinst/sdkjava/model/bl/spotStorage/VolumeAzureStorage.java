@@ -1,7 +1,6 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,6 +35,7 @@ public class VolumeAzureStorage {
     public void setIsSet(Set<String> isSet) {
         this.isSet = isSet;
     }
+
     public String getId() {
         return this.id;
     }
@@ -131,12 +131,12 @@ public class VolumeAzureStorage {
     //region Builder class
     public static class Builder {
         //region Members
-        private VolumeAutoResizeResizePolicyAction volumeAzureStorage;
+        private VolumeAzureStorage volumeAzureStorage;
         //endregion
 
 
         private Builder() {
-            this.volumeAzureStorage = new VolumeAutoResizeResizePolicyAction();
+            this.volumeAzureStorage = new VolumeAzureStorage();
         }
 
         public static Builder get() {
@@ -170,7 +170,7 @@ public class VolumeAzureStorage {
             return this;
         }
 
-        public Builder setVolumeSpec(final com.spotinst.sdkjava.model.bl.spotStorage.volumeSpec volumeSpec) {
+        public Builder setVolumeSpec(final VolumeSpecNetwork volumeSpec) {
             volumeAzureStorage.setVolumeSpec(volumeSpec);
             return this;
         }
@@ -185,7 +185,7 @@ public class VolumeAzureStorage {
             return this;
         }
 
-        public VolumeAutoResizeResizePolicyAction build() {
+        public VolumeAzureStorage build() {
             // Validations
             return volumeAzureStorage;
         }

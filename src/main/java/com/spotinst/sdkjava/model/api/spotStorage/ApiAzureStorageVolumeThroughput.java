@@ -39,7 +39,7 @@ public class ApiAzureStorageVolumeThroughput implements IPartialUpdateEntity {
         return throughputMibps;
     }
 
-    public void setRegion(Double throughputMibps) {
+    public void setThroughputMibps(Double throughputMibps) {
         isSet.add("throughputMibps");
         this.throughputMibps = throughputMibps;
     }

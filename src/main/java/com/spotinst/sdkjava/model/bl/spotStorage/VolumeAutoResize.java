@@ -1,7 +1,6 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -61,12 +60,12 @@ public class VolumeAutoResize {
     //region Builder class
     public static class Builder {
         //region Members
-        private VolumeAutoResizeResizePolicyAction volumeAutoResize;
+        private VolumeAutoResize volumeAutoResize;
         //endregion
 
 
         private Builder() {
-            this.volumeAutoResize = new VolumeAutoResizeResizePolicyAction();
+            this.volumeAutoResize = new VolumeAutoResize();
         }
 
         public static Builder get() {
@@ -90,7 +89,7 @@ public class VolumeAutoResize {
             return this;
         }
 
-        public VolumeAutoResizeResizePolicyAction build() {
+        public VolumeAutoResize build() {
             // Validations
             return volumeAutoResize;
         }

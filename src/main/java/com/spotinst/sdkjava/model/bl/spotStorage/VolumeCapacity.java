@@ -1,7 +1,6 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -65,12 +64,12 @@ public class VolumeCapacity {
     //region Builder class
     public static class Builder {
         //region Members
-        private VolumeSpecNetwork volumeCapacity;
+        private VolumeCapacity volumeCapacity;
         //endregion
 
 
         private Builder() {
-            this.volumeCapacity = new VolumeSpecNetwork();
+            this.volumeCapacity = new VolumeCapacity();
         }
 
         public static Builder get() {
@@ -94,7 +93,7 @@ public class VolumeCapacity {
             return this;
         }
 
-        public VolumeSpecNetwork build() {
+        public VolumeCapacity build() {
             // Validations
             return volumeCapacity;
         }

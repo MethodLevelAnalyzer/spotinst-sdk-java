@@ -1,21 +1,20 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class VolumeAutoResizeResizePolicy {
     //region Members
     @JsonIgnore
-    private Set<String>                                       isSet;
-    private String                                            policyName;
-    private Integer                                           usagePercentage;
-    private String                                            operator;
-    private VolumeAutoResizeResizePolicyAction                action;
-    private Integer                                           period;
-    private Integer                                           consecutivePeriods;
-    private Integer                                           cooldown;
+    private Set<String>                        isSet;
+    private String                             policyName;
+    private Integer                            usagePercentage;
+    private String                             operator;
+    private VolumeAutoResizeResizePolicyAction action;
+    private Integer                            period;
+    private Integer                            consecutivePeriods;
+    private Integer                            cooldown;
     //endregion
 
     //region Constructor
@@ -113,12 +112,12 @@ public class VolumeAutoResizeResizePolicy {
     //region Builder class
     public static class Builder {
         //region Members
-        private VolumeAutoResizeResizePolicyAction volumeAutoResizeResizePolicy;
+        private VolumeAutoResizeResizePolicy volumeAutoResizeResizePolicy;
         //endregion
 
 
         private Builder() {
-            this.volumeAutoResizeResizePolicy = new VolumeAutoResizeResizePolicyAction();
+            this.volumeAutoResizeResizePolicy = new VolumeAutoResizeResizePolicy();
         }
 
         public static Builder get() {
@@ -162,7 +161,7 @@ public class VolumeAutoResizeResizePolicy {
             return this;
         }
 
-        public VolumeAutoResizeResizePolicyAction build() {
+        public VolumeAutoResizeResizePolicy build() {
             // Validations
             return volumeAutoResizeResizePolicy;
         }
@@ -203,10 +202,14 @@ public class VolumeAutoResizeResizePolicy {
 
     // Is consecutivePeriods Set boolean method
     @JsonIgnore
-    public boolean isConsecutivePeriodsSet() { return isSet.contains("consecutivePeriods"); }
+    public boolean isConsecutivePeriodsSet() {
+        return isSet.contains("consecutivePeriods");
+    }
 
     // Is cooldown Set boolean method
     @JsonIgnore
-    public boolean isCooldownSet() { return isSet.contains("cooldown"); }
+    public boolean isCooldownSet() {
+        return isSet.contains("cooldown");
+    }
     //endregion
 }

@@ -1,7 +1,6 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,10 +8,10 @@ import java.util.Set;
 public class VolumeSpec {
     //region Members
     @JsonIgnore
-    private Set<String>                       isSet;
+    private Set<String>        isSet;
     private VolumeSpecNetwork  network;
     private VolumeSpecProtocol protocol;
-    private String                            serviceLevel;
+    private String             serviceLevel;
     private List<VolumeTag>    tags;
     //endregion
 
@@ -71,12 +70,12 @@ public class VolumeSpec {
     //region Builder class
     public static class Builder {
         //region Members
-        private VolumeSpecNetwork volumeSpec;
+        private VolumeSpec volumeSpec;
         //endregion
 
 
         private Builder() {
-            this.volumeSpec = new VolumeSpecNetwork();
+            this.volumeSpec = new VolumeSpec();
         }
 
         public static Builder get() {
@@ -90,7 +89,7 @@ public class VolumeSpec {
             return this;
         }
 
-        public Builder setProtocol (final VolumeSpecProtocol protocol) {
+        public Builder setProtocol(final VolumeSpecProtocol protocol) {
             volumeSpec.setProtocol(protocol);
             return this;
         }
@@ -105,7 +104,7 @@ public class VolumeSpec {
             return this;
         }
 
-        public VolumeSpecNetwork build() {
+        public VolumeSpec build() {
             // Validations
             return volumeSpec;
         }

@@ -1,9 +1,7 @@
 package com.spotinst.sdkjava.model.bl.spotStorage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class VolumeSpecNetwork {
@@ -80,7 +78,7 @@ public class VolumeSpecNetwork {
             return this;
         }
 
-        public Builder setVirtualNetworkName (final String virtualNetworkName) {
+        public Builder setVirtualNetworkName(final String virtualNetworkName) {
             volumeSpecNetwork.setVirtualNetworkName(virtualNetworkName);
             return this;
         }
